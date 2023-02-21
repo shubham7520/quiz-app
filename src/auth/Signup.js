@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import "./auth.css";
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -16,9 +16,14 @@ const Signup = () => {
             "password": password
         }
         localStorage.setItem("userKey", JSON.stringify(user));
+        localStorage.setItem("user", email);
         navigate('/home');
     }
-
+    useEffect(() => {
+        if (localStorage.getItem("user")) {
+            navigate("/home")
+        }
+    }, [navigate])
     return (
         <div className='signup-page'>
             <div className='signup-container'>

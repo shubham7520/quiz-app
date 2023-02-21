@@ -5,7 +5,7 @@ import Home from './components/Home';
 import './App.css';
 
 function App() {
-  const userKey = localStorage.getItem('userKey');
+  const user = localStorage.getItem('user');
 
 
   return (
@@ -13,7 +13,7 @@ function App() {
       <Router>
         <Routes>
           {
-            userKey ? <Route path='/' exact element={<Home />} /> : <Route path='/' exact element={<Login />} />
+            user ? <Route path='/' exact element={<Home />} /> : <Route path='/' exact element={<Login />} />
           }
           <Route path='/home' exact element={<Home />} />
           <Route path='/login' exact element={<Login />} />

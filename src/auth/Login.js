@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./auth.css";
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -13,12 +13,17 @@ const Login = () => {
         userKey = JSON.parse(userKey);
 
         if (email === userKey.email && password === userKey.password) {
+
+            localStorage.setItem("user", email)
             navigate('/home')
         }
-
-
-
     }
+
+    useEffect(() => {
+        if (localStorage.getItem("user")) {
+            navigate("/home")
+        }
+    }, [navigate])
 
     return (
         <div className='login-page'>
