@@ -10,13 +10,17 @@ const Login = () => {
     const handleClick = () => {
 
         let userKey = localStorage.getItem("userKey");
+        console.log(userKey.length);
         userKey = JSON.parse(userKey);
+        console.log(userKey.length);
 
-        if (email === userKey.email && password === userKey.password) {
 
-            localStorage.setItem("user", email)
-            navigate('/home')
-        }
+        userKey.forEach(element => {
+            if (email === element.email && password === element.password) {
+                localStorage.setItem("user", email)
+                navigate('/home')
+            }
+        });
     }
 
     useEffect(() => {

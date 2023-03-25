@@ -10,12 +10,24 @@ const Signup = () => {
     const navigate = useNavigate('');
 
     const handleClick = () => {
+        let userKey = [];
         const user = {
             "name": name,
             "email": email,
             "password": password
         }
-        localStorage.setItem("userKey", JSON.stringify(user));
+
+        let localData = localStorage.getItem("userKey");
+        if (localData) {
+            localData = JSON.parse(localData);
+            userKey = localData;
+            userKey.push(user);
+        }
+        else {
+            userKey[0] = user;
+        }
+
+        localStorage.setItem("userKey", JSON.stringify(userKey));
         localStorage.setItem("user", email);
         navigate('/home');
     }

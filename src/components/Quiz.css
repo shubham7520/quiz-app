@@ -75,3 +75,19 @@
     border: none;
     background-color: RGB(57, 191, 166);
 }
+
+.proBar{
+      height: "2rem";
+       background-color: red;
+       width: 50vw;
+        border-radius: 5rem
+}
+.proBar>div{
+  background-color: green;
+  height: 100%;
+   border-radius: 5rem;
+   color: white;
+    text-align: right;
+     font-weight: 800;
+      padding-right: 2%;
+}

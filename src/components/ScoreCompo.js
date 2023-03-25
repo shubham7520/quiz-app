@@ -9,6 +9,7 @@ const ScoreCompo = ({ score, total }) => {
 
     const handle = () => {
         localStorage.removeItem("user");
+        localStorage.removeItem("score");
 
     }
     useEffect(() => {
@@ -19,6 +20,12 @@ const ScoreCompo = ({ score, total }) => {
 
     return (
         <div className='score-container'>
+
+            {/* Progress bar
+            <div className='proBar'>
+                <div style={{ width: "50%" }}>45%</div>
+            </div> */}
+
             <h2>{message}</h2>
             <h1>Your score is {localStorage.getItem("score")} out of {total}</h1>
             <Link to="/login">
